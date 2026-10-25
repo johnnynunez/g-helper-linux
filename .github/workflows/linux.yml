@@ -1,0 +1,27 @@
+name: Linux native
+
+on:
+  push:
+    branches: [linux-native]
+    paths: ['linux/**', '.github/workflows/linux.yml']
+  pull_request:
+    paths: ['linux/**', '.github/workflows/linux.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install native GTK4 test dependencies
+        run: sudo apt-get update && sudo apt-get install -y python3-gi gir1.2-gtk-4.0 xvfb
+      - name: Unit and real GTK4 window tests (fixture backend; no hardware writes)
+        env:
+          PYTHONPATH: linux
+          GHELPER_GUI_TEST: '1'
+        run: xvfb-run -a /usr/bin/python3 -m unittest discover -s linux/tests -v
+      - name: CLI entry point
+        run: linux/bin/g-helper-linux --help

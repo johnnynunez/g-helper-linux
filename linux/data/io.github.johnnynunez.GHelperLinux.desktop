@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=G-Helper Linux
+Comment=Experimental native ASUS laptop monitor and capability-gated controls
+Exec=g-helper-linux
+Icon=preferences-system
+Terminal=false
+Categories=System;Settings;HardwareSettings;
+Keywords=ASUS;ProArt;NVIDIA;Battery;Fan;
+StartupNotify=true

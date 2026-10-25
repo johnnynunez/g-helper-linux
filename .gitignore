@@ -369,3 +369,15 @@ FodyWeavers.xsd
 
 tools/
 app/*.lscache
+
+# Native Linux package build/cache output
+__pycache__/
+*.py[cod]
+*.egg-info/
+linux/build/
+linux/dist/
+linux/.venv/
+
+# Source-tree launcher (the Windows rules above ignore bin directories)
+!linux/bin/
+!linux/bin/g-helper-linux

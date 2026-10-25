@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghelper-linux"
+version = "0.1.0"
+description = "Experimental native GTK4 G-Helper fork for ASUS laptops, including ProArt P14 H7407BA"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{name = "G-Helper Linux contributors"}]
+classifiers = ["Development Status :: 3 - Alpha", "Operating System :: POSIX :: Linux", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+g-helper-linux = "ghelper_linux.cli:main"
+
+[project.urls]
+Repository = "https://github.com/johnnynunez/g-helper-linux"
+Upstream = "https://github.com/seerge/g-helper"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ghelper_linux*"]

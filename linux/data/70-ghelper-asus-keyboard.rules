@@ -1,0 +1,5 @@
+# Optional: grant only the active local desktop session access to this ASUS
+# I2C keyboard. No EC (4543) rule, no MODE=0666, no background-service access.
+# Install as /etc/udev/rules.d/70-ghelper-asus-keyboard.rules only if you choose
+# to test the experimental HID keyboard commands. This file does not send them.
+SUBSYSTEM=="hidraw", KERNELS=="0018:0B05:4B42.*", TAG+="uaccess"

@@ -1,0 +1,3 @@
+include README.md LICENSE
+include bin/g-helper-linux
+recursive-include data *.desktop *.rules

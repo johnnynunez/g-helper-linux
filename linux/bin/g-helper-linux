@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+"""Source-tree launcher; uses the distro interpreter that provides PyGObject."""
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from ghelper_linux.cli import main
+
+raise SystemExit(main())
