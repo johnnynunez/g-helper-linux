@@ -29,6 +29,15 @@ An independent reviewer read both repositories, the Windows diff, Linux backend/
 - No root services, global device access, installed udev rules, kernel-module changes, ACPI calls, firmware changes or secrets/product-key collection.
 - Preserve local branches and artifacts. Publish to the user's requested fork, not an upstream PR implying Windows hardware validation.
 
+## Publication
+
+The fork is published at https://github.com/johnnynunez/g-helper-linux with default branch `linux-native`. Remote refs were read back and matched local commits. No upstream PR was opened.
+
+- Linux implementation commit `a2f80c263cfa0d001cec24bda97d0842c1f99dbf`: GitHub Actions Linux native succeeded, including the GTK4/Xvfb test. https://github.com/johnnynunez/g-helper-linux/actions/runs/40246795535
+- Windows commit `907045784a21fcf677903f608dee64c106c431e1`, branch `feat/proart-p14-h7407ba`: the original Windows build workflow also succeeded on a Windows runner. https://github.com/johnnynunez/g-helper-linux/actions/runs/40246806797
+- The Linux wheel was installed into an isolated venv with system GTK dependencies; its console entry point, real JSON collection and mapped-window smoke test succeeded from outside the source checkout. One first-run GLib-GIO cleanup warning was not reproduced when the installed-wheel and source smoke tests were repeated; both repeated runs exited 0 with empty stderr.
+- Windows zip and Linux wheel/source archive are preserved in each local checkout's ignored `artifacts/` directory. The Windows zip contains the single-file executable, config, runtime/validation notes and GPL license.
+
 ## Remaining hardware work
 
 Windows runtime validation; an authorized DSDT/SSDT copy for the unbound ASUS2018 ACPI path; optional OEM ARM control-service binaries; explicit keyboard-state validation; and fail-safe testing before any future fan-control implementation. Class-only platform-profile handlers are not implemented and are not advertised.
